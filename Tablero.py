@@ -2,22 +2,22 @@ import streamlit as st
 from streamlit_drawable_canvas import st_canvas
 
 # 1. Configuración de la página
-st.set_page_config(page_title="Tablero de Dibujo", layout="wide")
+st.set_page_config(page_title="Tablero de Dibujo", layout="wide", page_icon="🎨")
 
-st.title("Tablero para dibujo")
+st.title("🎨 Tablero para dibujo")
 
 with st.sidebar:
     st.subheader("Propiedades del Tablero")
 
     # Dimensiones del tablero
-    st.subheader("Dimensiones del Tablero")
+    st.write("**Dimensiones**")
     canvas_width = st.slider("Ancho del tablero", 300, 700, 500, 50)
     canvas_height = st.slider("Alto del tablero", 200, 600, 300, 50)
 
     # Selector de modo de dibujo
     drawing_mode = st.selectbox(
         "Herramienta de Dibujo:",
-        ("freedraw", "line", "rect", "circle", "transform", "polygon", "point"),
+        ("freedraw", "line", "rect", "circle", "transform", "polygon", "point")
     )
 
     # Controles de trazo y color
@@ -46,7 +46,7 @@ if canvas_result is not None:
         # se capturará el RuntimeError.
         if canvas_result.image_data is not None:
             st.markdown("---")
-            st.subheader("Previsualización de la Imagen Generada")
+            st.subheader("🖼️ Previsualización de la Imagen Generada")
             # Muestra el array de NumPy devuelto por el lienzo como una imagen
             st.image(canvas_result.image_data)
             
